@@ -7,12 +7,11 @@ package searchingsimulator;
 
 /**
  *
- * @author CEN
+ * @author Nathanael Adi Trianto - 6181901041
  */
 import java.util.ArrayList;
 
 public class DFS {
-//    Graph graph;
     drawGraph dGraph;
     
     DFS(drawGraph dg){
@@ -20,9 +19,8 @@ public class DFS {
     }
     
     void doSearch(){
-        // salin node di graph ke daftar simpul di dGraph
         dGraph.dg_nodes = new ArrayList<Node>();
-        for (Node n:dGraph.graph.nodes) {
+        for (Node n : dGraph.graph.nodes) {
             dGraph.dg_nodes.add(n);
         }
 
@@ -34,16 +32,15 @@ public class DFS {
         dGraph.openList.add(in);
         dGraph.dg_nodes.remove(in);
         
-        while ((dGraph.openList != null)&&!found) {
-            Node cn = dGraph.openList.get(0); //current node
+        while (!dGraph.openList.isEmpty() && !found) {
+            Node cn = dGraph.openList.remove(dGraph.openList.size() - 1); // pop last node
             dGraph.closedList.add(cn);
-            dGraph.openList.remove(cn);
             dGraph.delay(1000);
             
             if (cn.nodeNr != dGraph.goalNode) {
                 for (Node child : dGraph.graph.nodes) {
-                    if (dGraph.dg_nodes.contains(child) && // belum dikunjungi
-                        dGraph.graph.adjMatrix[cn.nodeNr][child.nodeNr]<1000000.0) {
+                    if (dGraph.dg_nodes.contains(child) && // not visited yet
+                        dGraph.graph.adjMatrix[cn.nodeNr][child.nodeNr] < 1000000.0) {
                         dGraph.openList.add(child);
                         dGraph.dg_nodes.remove(child);
                     }
