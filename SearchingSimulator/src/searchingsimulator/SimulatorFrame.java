@@ -100,6 +100,11 @@ public class SimulatorFrame extends javax.swing.JFrame {
         menuAlgorithm.add(menuBFS);
 
         menuDFS.setText("DFS");
+        menuDFS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuDFSActionPerformed(evt);
+            }
+        });
         menuAlgorithm.add(menuDFS);
 
         menuUCS.setText("UCS");
@@ -164,6 +169,12 @@ public class SimulatorFrame extends javax.swing.JFrame {
         BFS bfs = new BFS(dgraph);
         bfs.doSearch();
     }//GEN-LAST:event_menuBFSActionPerformed
+
+    private void menuDFSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuDFSActionPerformed
+        // TODO add your handling code here:
+        DFS dfs = new DFS(dgraph);
+        dfs.doSearch();
+    }//GEN-LAST:event_menuDFSActionPerformed
 
     /**
      * @param args the command line arguments
