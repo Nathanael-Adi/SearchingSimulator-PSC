@@ -14,6 +14,8 @@ public class Node {
     String nodeLabel;
     int posX;
     int posY;
+    public double pathCost;
+    public Node parent;
     
     Node(int nr, String nL, int px, int py){
         nodeNr = nr;

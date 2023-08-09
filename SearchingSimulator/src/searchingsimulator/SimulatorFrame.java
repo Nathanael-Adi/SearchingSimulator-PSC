@@ -140,6 +140,8 @@ public class SimulatorFrame extends javax.swing.JFrame {
 
     private void menuUCSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuUCSActionPerformed
         // TODO add your handling code here:
+        UCS ucs = new UCS(dgraph);
+        ucs.doSearch();
     }//GEN-LAST:event_menuUCSActionPerformed
 
     private void menuLoadGraphActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuLoadGraphActionPerformed
